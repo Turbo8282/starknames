@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .animation-delay-2000 {
+        animation-delay: 2s;
+    }
+    .animation-delay-4000 {
+        animation-delay: 4s;
+    }
+}
+.turnred {
+  fill: red;
+}
+
+.hello::before, .hello::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.hello::before {
+    background: white;
+    animation: typewriter 2s ease-out forwards;
+}
+
+@keyframes typewriter {
+    to {
+        left: 100%;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Wallpoet&display=swap');
+
+/* body {
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  background: ;
+}
+ */
+.wrap {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  perspective: 800px;
+}
+.neptun {
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation : rotate 20s infinite cubic-bezier(1.000, 0.500, 0.250, 1.000);
+}
+
+.elem {
+  display: inline-block;
+  position: absolute;
+  z-index: 2;
+  top:50%;
+  left:50%;
+  perspective: 200px;
+  transform-style: preserve-3d;
+  width: 0;
+  height: 0;
+  transform: translate3d(0,0,0);
+  transition: 0.3s transform ease-out;
+}
+/* .elem::before{
+    content:"";
+    width: 4px;
+    height: 4px;
+    display: inline-block;
+    position: absolute;
+    top: calc(50% - 2px);
+    left: calc(50% - 2px);
+    background: currentColor;
+    color: inherit;
+    border-radius: 50%;
+    animation: invertRotate 25s infinite cubic-bezier(1.000, 0.000, 0.000, 1.000), scale 2s infinite linear;
+    box-shadow: 0 0 10px currentColor;
+} */
+
+@import "~sass-trigonometry";
+$amount : 600;
+@for $i from 1 through $amount {
+  
+  $theta : ($i / $amount)*452;
+  $phi : ($i / $amount) * 3.14159265359;
+  $x : 300 * sin($phi) * cos($theta);
+  $y : 300 * sin($phi) * sin($theta);
+  $z : 300 * cos($phi);
+  .neptun .elem:nth-child(#{$i}){
+    /*transform: translate3d($x+px, $y+px, $z+px);*/
+    color: hsl((($i/$amount)* -100 - 25),100%,($i/$amount)*20%+30);
+    &:before{
+      animation-delay: 0s, ($i/$amount)*2+s;
+    }
+  }  
+}
+
+
+.logo {
+  font-size: 175px;
+  color: hsl(240,46, 30);
+  font-family: 'Wallpoet', cursive;
+  position: absolute;
+  top: 50%;left: 50%;
+  transform: translate(-50%, -50%);
+  perspective: 200px;
+  transform-style: preserve-3d;
+}
+.logo .depth {
+  content:"L";
+  color: hsl(240, 46,20);
+  position: absolute;
+  top: 50%;left: 50%;
+  transform: translate(-50%, -50%) translateZ(-2px);
+  perspective: 200px;
+  transform-style: preserve-3d;
+  transition: 2s all ease-out 9s;
+}
+
+.logo .depth:last-of-type {
+  color: hsl(240, 46, 15) !important;
+}
+
+@keyframes rotate{
+  to{transform:rotateY(360deg)}
+}
+@keyframes invertRotate{
+  to{transform:rotateY(-360deg)}
+}
+@keyframes scale{
+  0%, 45%,55%{
+    box-shadow: 0 0 10px 0px currentColor;
+  }
+  50%{
+    box-shadow: 0 0 10px 1px currentColor;
+  }
+}
