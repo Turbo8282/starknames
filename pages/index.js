@@ -18,7 +18,7 @@ export default function Home() {
 
         </div>
         <div className="flex justify-center">
-          <div className="pb-5 xl:pb-7 pt-3 xl:pt-4 text-5xl">Get your .stark domain for your online identity.</div>
+          <div className="pb-7 xl:pb-9 pt-3 xl:pt-4 text-5xl">Get your .stark domain for your online identity.</div>
 
         </div>
           <SearchBar />
