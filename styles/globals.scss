@@ -56,14 +56,14 @@
 }
  */
 .wrap {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   position: relative;
   perspective: 800px;
 }
 .neptun {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   transform-style: preserve-3d;
   animation : rotate 20s infinite cubic-bezier(1.000, 0.500, 0.250, 1.000);
 }
@@ -116,7 +116,7 @@ $amount : 600;
 
 
 .logo {
-  font-size: 175px;
+  font-size: 125px;
   color: hsl(240,46, 30);
   font-family: 'Wallpoet', cursive;
   position: absolute;

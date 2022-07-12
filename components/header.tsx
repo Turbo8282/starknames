@@ -29,12 +29,7 @@ export default function Header() {
                 </Link>
             </div>
 
-            <div className="">
-                <ConnectWallet />
-
-
-            </div>
-
+            <ConnectWallet />
         </div>
 
     )    

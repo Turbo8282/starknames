@@ -66,7 +66,7 @@ export default function SearchBar() {
     }
 
     return (
-        <form onSubmit={onSubmit} className="h-20 flex justify-start items-center xl:h-24">
+        <form onSubmit={onSubmit} className="mb-20 h-20 flex justify-start items-center xl:h-24">
             <AnimatedInput placeholder="Search names or addresses" />
 
             <button className="ml-3 mt-1" type="submit">

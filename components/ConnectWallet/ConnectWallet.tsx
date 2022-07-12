@@ -32,7 +32,7 @@ export default function ConnectWallet() {
     }
 
     return (
-        <div className="cursor-pointer hover:bg-blue-800 hover:border-blue-800 hover:text-white border-2 border-red-600 px-6 pt-2 rounded-3xl transition ease-in-out">
+        <div className="text-small cursor-pointer hover:bg-blue-800 hover:border-blue-800 hover:text-white border-2 border-red-600 px-6 pt-2 rounded-3xl transition ease-in-out">
             {available.map(connector => (
                 <button className="pb-2" key={connector.id()} onClick={() => connect(connector)}>
                     Connect Wallet
