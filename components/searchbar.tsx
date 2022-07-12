@@ -32,7 +32,7 @@ const AnimatedInput = ({placeholder: passedPlaceholder = "", ...passedProps}) =>
 
 
     return (
-        <input onKeyDown={handleKeyDown} {...passedProps} placeholder={placeholder} className="p-3 rounded-3xl border-4 border-slate-300 text-2xl ml-1 relative inline w-full font-light input-searchbar email-id" spellCheck="false" minLength="3" />
+        <input onKeyDown={handleKeyDown} {...passedProps} placeholder={placeholder} className="p-3 rounded-3xl border-4 border-slate-300 text-2xl ml-1 relative inline w-full font-light input-searchbar email-id" spellCheck="false" minLength={3} />
 
     )
 };
@@ -50,7 +50,7 @@ const NormalInput = ({placeholder, ...passedProps}) => {
 
 
     return (
-        <input onKeyDown={handleKeyDown} {...passedProps} placeholder={placeholder} className="p-3 rounded-3xl border-4 border-slate-300 text-2xl ml-1 relative inline w-full font-light input-searchbar email-id" spellCheck="false" minLength="3" />
+        <input onKeyDown={handleKeyDown} {...passedProps} placeholder={placeholder} className="p-3 rounded-3xl border-4 border-slate-300 text-2xl ml-1 relative inline w-full font-light input-searchbar email-id" spellCheck="false" minLength={3} />
 
     )
 };
