@@ -27,6 +27,16 @@
     animation: typewriter 2s ease-out forwards;
 }
 
+.input-searchbar:focus {
+  outline: none;
+}
+.input-searchbar:focus + label {
+  color: transparent;
+}
+
+.label-bar {
+  pointer-events: none;
+}
 @keyframes typewriter {
     to {
         left: 100%;

@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST={"../components/ConnectWallet/index.js -> ./ConnectWallet":{"id":"../components/ConnectWallet/index.js -> ./ConnectWallet","files":["static/chunks/components_ConnectWallet_ConnectWallet_js.js"]}}
+self.__REACT_LOADABLE_MANIFEST={"../components/ConnectWallet/index.tsx -> ./ConnectWallet":{"id":"../components/ConnectWallet/index.tsx -> ./ConnectWallet","files":["static/chunks/components_ConnectWallet_ConnectWallet_tsx.js"]}}
