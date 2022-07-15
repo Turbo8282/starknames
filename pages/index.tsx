@@ -8,7 +8,13 @@ export default function Home() {
   return (
     <div className="flex justify-center">
       <div>
-        
+      <div className="flex justify-center mt-12 xl:mt-16">
+            <div className="wrap">
+              <div className="neptun">
+                <div className="logo">SNS</div>
+              </div>
+            </div>
+          </div>
         <div className="flex justify-center">
           <div className="text-6xl py-3 xl:py-4 font-medium">Starknet Name Service</div>
 

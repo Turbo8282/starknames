@@ -19,8 +19,8 @@ export default function ConnectWallet() {
     if(account) {
         let truncatedAdddress = truncateAddress(account);
         return (
-            <div className="cursor-pointer hover:text-white hover:bg-red-600 border-2 border-blue-800 hover:border-red-600 px-6 pt-2 rounded-3xl transition ease-in-out">
-                <button className="pb-2" onClick={() => disconnect()} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+            <div className="flex justify-items align-items cursor-pointer hover:text-white hover:bg-red-600 border-2 border-blue-800 hover:border-red-600 px-3 sm:px-6 rounded-3xl transition ease-in-out">
+                <button onClick={() => disconnect()} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
                     {isConnected && <div>Disconnect</div>}
                     {!isConnected && <div>{truncatedAdddress}</div>}
 
@@ -32,9 +32,9 @@ export default function ConnectWallet() {
     }
 
     return (
-        <div className="text-small cursor-pointer hover:bg-blue-800 hover:border-blue-800 hover:text-white border-2 border-red-600 px-6 pt-2 rounded-3xl transition ease-in-out">
+        <div className="flex justify-items align-items text-sm sm:text-lg cursor-pointer hover:bg-blue-800 hover:border-blue-800 hover:text-white border-2 border-red-600 px-3 sm:px-6 rounded-3xl transition ease-in-out">
             {available.map(connector => (
-                <button className="pb-2" key={connector.id()} onClick={() => connect(connector)}>
+                <button key={connector.id()} onClick={() => connect(connector)}>
                     Connect Wallet
                 </button>
             ))}
