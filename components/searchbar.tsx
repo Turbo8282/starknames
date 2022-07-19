@@ -1,6 +1,5 @@
 import Image from "next/image"
 import { useRouter } from "next/router";
-import Script from "next/script";
 import { useState, useEffect } from "react";
 
 const AnimatedInput = ({placeholder: passedPlaceholder = "", ...passedProps}) => {
@@ -32,7 +31,7 @@ const AnimatedInput = ({placeholder: passedPlaceholder = "", ...passedProps}) =>
 
 
     return (
-        <input onKeyDown={handleKeyDown} {...passedProps} placeholder={placeholder} className="p-3 rounded-3xl border-4 border-slate-300 text-2xl ml-1 relative inline w-full font-light input-searchbar email-id" spellCheck="false" minLength={3} />
+        <input onKeyDown={handleKeyDown} {...passedProps} placeholder={placeholder} className="p-3 rounded-3xl border-4 border-slate-300 text-xl sm:text-2xl ml-1 relative inline w-full font-light input-searchbar email-id" spellCheck="false" minLength={3} />
 
     )
 };
@@ -50,7 +49,7 @@ const NormalInput = ({placeholder, ...passedProps}) => {
 
 
     return (
-        <input onKeyDown={handleKeyDown} {...passedProps} placeholder={placeholder} className="animate-pulse p-3 rounded-3xl border-4 border-slate-300 text-2xl ml-1 relative inline w-full font-light input-searchbar email-id" spellCheck="false" minLength={3} />
+        <input onKeyDown={handleKeyDown} {...passedProps} placeholder={placeholder} className="p-3 rounded-3xl border-4 border-slate-300 text-xl sm:text-2xl ml-1 relative inline w-full font-light input-searchbar email-id" spellCheck="false" minLength={3} />
 
     )
 };
@@ -61,7 +60,7 @@ export default function SearchBar() {
 
     const onSubmit = event => {
         event.preventDefault();
-        router.push("/search/" + encodeURI(event.target[0].value));
+        router.push("/search/" + encodeURI(event.target[0].value).toLowerCase());
         
     }
 
@@ -88,12 +87,12 @@ export function NormalSearchBar() {
 
     const onSubmit = event => {
         event.preventDefault();
-        router.push("/search/" + encodeURI(event.target[0].value));
+        router.push("/search/" + encodeURI(event.target[0].value).toLowerCase());
         
     }
 
     return (
-        <form onSubmit={onSubmit} className="h-20 flex justify-start items-center xl:h-24">
+        <form onSubmit={onSubmit} className="h-20 flex justify-start items-center xl:h-24 mt-12 sm:mt-16">
             <NormalInput placeholder="Search other names or addresses" />
 
             <button className="ml-3 mt-1" type="submit">

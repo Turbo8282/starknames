@@ -40,6 +40,10 @@ module.exports = {
         'bastion-gradient-light-green': '#0CF39F',
         'bastion-token-green': '#30CB92',
         'bastion-token-dark-green': '#00bd78',
+        "starkblue": "#29296E",
+        "starkred": "#F66B44",
+        "starklightred": "#F88262",
+        "twitterblue": "#1DA1F2",
         gold: '#D5A73A',
         primary: '#202225',
         secondary: '#5865f2'
@@ -47,9 +51,6 @@ module.exports = {
       fontWeight: {
         'extra-bold': 800,
       },
-      backgroundImage: {
-        'bastion-bg-damascus': "url('/public/bastion_bg_damascus.png')"
-      }
     },
   },
   plugins: [],
