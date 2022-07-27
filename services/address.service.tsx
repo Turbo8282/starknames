@@ -12,7 +12,7 @@ export const truncateAddress = (fullAddress) => {
   return `${hex}${start}...${end}`;
 };
 
-const GOERLI_DEFAULT_REGISTRY_CONTRACT_ADDRESS = "0x05ab97cc647943dd0354b7b9073ceed535c3fdc24cc8fbd072979a7897982503";
+const GOERLI_DEFAULT_REGISTRY_CONTRACT_ADDRESS = "0x06642df6ff8b3bbeee0a87d65d72424a212fd0a09229c238ab1e1fe9e1ccacf0";
 
 export const getRegistryAddress = (network) => {
   if (network == "mainnet-alpha") {
@@ -29,7 +29,7 @@ export const getRegistryAddress = (network) => {
 };
 
 export const GOERLI_DEFAULT_RESOLVER_CONTRACT_ADDRESS =
-  "0x071597a3a4a96d7ed00d4643cd44ea7123c00756ebe0ccc8694ea0a0db2a7635";
+  "0x038c8b26c8df1b410c1a355af791464681509b028b2be615f24c8b8039c33b78";
 
   export const getResolverAddress = (network) => {
     if (network == "mainnet-alpha") {

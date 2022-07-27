@@ -1,356 +1,134 @@
-"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 888;
-exports.ids = [888];
+exports.id = "pages/_app";
+exports.ids = ["pages/_app"];
 exports.modules = {
 
-/***/ 8044:
+/***/ "./components/ConnectWallet/ConnectWallet.tsx":
+/*!****************************************************!*\
+  !*** ./components/ConnectWallet/ConnectWallet.tsx ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"addWalletChangeListener\": () => (/* binding */ addWalletChangeListener),\n/* harmony export */   \"connectWallet\": () => (/* binding */ connectWallet),\n/* harmony export */   \"default\": () => (/* binding */ ConnectWallet),\n/* harmony export */   \"isPreauthorized\": () => (/* binding */ isPreauthorized),\n/* harmony export */   \"isWalletConnected\": () => (/* binding */ isWalletConnected),\n/* harmony export */   \"walletAddress\": () => (/* binding */ walletAddress)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _services_address_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/address.service */ \"./services/address.service.tsx\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var get_starknet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! get-starknet */ \"get-starknet\");\n/* harmony import */ var get_starknet__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(get_starknet__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/router */ \"next/router\");\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_4__);\n\n\n\n\n\nconst isWalletConnected = ()=>!!(0,get_starknet__WEBPACK_IMPORTED_MODULE_3__.getStarknet)()?.isConnected;\nconst connectWallet = async ()=>await (0,get_starknet__WEBPACK_IMPORTED_MODULE_3__.getStarknet)().enable({\n        showModal: true\n    });\nconst walletAddress = async ()=>{\n    try {\n        const [address] = await (0,get_starknet__WEBPACK_IMPORTED_MODULE_3__.getStarknet)().enable();\n        return address;\n    } catch  {}\n};\nconst addWalletChangeListener = async (handleEvent)=>{\n    const starknet = (0,get_starknet__WEBPACK_IMPORTED_MODULE_3__.getStarknet)();\n    if (starknet) {\n        starknet.on(\"accountsChanged\", handleEvent);\n    }\n};\nconst isPreauthorized = async ()=>{\n    return (0,get_starknet__WEBPACK_IMPORTED_MODULE_3__.getStarknet)().isPreauthorized();\n};\nfunction ConnectWallet({ walletProps  }) {\n    /* \n    const { account } = useStarknet();\n    const { available, connect, disconnect } = useConnectors(); */ /* const handleMouseOver = () => {\n        setIsConnected(true);\n    };\n    \n    const handleMouseOut = () => {\n    setIsConnected(false);\n    }; */ //const hey = walletProps.isConnected;\n    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_4__.useRouter)();\n    if (walletProps.isConnected && walletProps.address !== undefined) {\n        let { 0: isConnected , 1: setIsConnected  } = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(false);\n        let truncatedAdddress = (0,_services_address_service__WEBPACK_IMPORTED_MODULE_1__.truncateAddress)(walletProps.address);\n        return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n            className: \"text-sm sm:text-lg flex justify-items align-items cursor-pointer border-2 text-blue-800 border-blue-800 hover:text-red-600 hover:border-red-600 px-4 sm:px-6 rounded-3xl transition ease-in-out\",\n            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n                onClick: ()=>{\n                    console.log((0,get_starknet__WEBPACK_IMPORTED_MODULE_3__.disconnect)({\n                        clearLastWallet: true\n                    }));\n                    router.reload();\n                },\n                children: !isConnected && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                    children: truncatedAdddress\n                }, void 0, false, {\n                    fileName: \"/home/dmesg/starknames/starknames/components/ConnectWallet/ConnectWallet.tsx\",\n                    lineNumber: 63,\n                    columnNumber: 38\n                }, this)\n            }, void 0, false, {\n                fileName: \"/home/dmesg/starknames/starknames/components/ConnectWallet/ConnectWallet.tsx\",\n                lineNumber: 62,\n                columnNumber: 17\n            }, this)\n        }, void 0, false, {\n            fileName: \"/home/dmesg/starknames/starknames/components/ConnectWallet/ConnectWallet.tsx\",\n            lineNumber: 61,\n            columnNumber: 13\n        }, this);\n    }\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: \"flex justify-items align-items text-sm sm:text-lg cursor-pointer border-blue-800 border text-white bg-blue-800 px-4 sm:px-6 rounded-3xl transition ease-in-out\",\n        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n            onClick: ()=>walletProps.handleConnectClick(),\n            children: \"Connect Wallet\"\n        }, void 0, false, {\n            fileName: \"/home/dmesg/starknames/starknames/components/ConnectWallet/ConnectWallet.tsx\",\n            lineNumber: 74,\n            columnNumber: 13\n        }, this)\n    }, void 0, false, {\n        fileName: \"/home/dmesg/starknames/starknames/components/ConnectWallet/ConnectWallet.tsx\",\n        lineNumber: 73,\n        columnNumber: 9\n    }, this);\n};\n{\n    {}\n    {}\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9jb21wb25lbnRzL0Nvbm5lY3RXYWxsZXQvQ29ubmVjdFdhbGxldC50c3guanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7QUFDaUU7QUFDaEM7QUFDc0I7QUFFZjtBQUVqQyxNQUFNSyxpQkFBaUIsR0FBRyxJQUFlLENBQUMsQ0FBQ0gseURBQVcsRUFBRSxFQUFFSSxXQUFXLENBQUM7QUFFdEUsTUFBTUMsYUFBYSxHQUFHLFVBQzNCLE1BQU1MLHlEQUFXLEVBQUUsQ0FBQ00sTUFBTSxDQUFDO1FBQUVDLFNBQVMsRUFBRSxJQUFJO0tBQUUsQ0FBQyxDQUFDO0FBRTNDLE1BQU1DLGFBQWEsR0FBRyxVQUF5QztJQUNwRSxJQUFJO1FBQ0YsTUFBTSxDQUFDQyxPQUFPLENBQUMsR0FBRyxNQUFNVCx5REFBVyxFQUFFLENBQUNNLE1BQU0sRUFBRTtRQUM5QyxPQUFPRyxPQUFPLENBQUM7S0FDaEIsQ0FBQyxPQUFNLEVBQUU7Q0FDWCxDQUFDO0FBRUssTUFBTUMsdUJBQXVCLEdBQUcsT0FDbkNDLFdBQXlDLEdBQ3RDO0lBQ0gsTUFBTUMsUUFBUSxHQUFHWix5REFBVyxFQUFFO0lBQzlCLElBQUlZLFFBQVEsRUFBRTtRQUNaQSxRQUFRLENBQUNDLEVBQUUsQ0FBQyxpQkFBaUIsRUFBRUYsV0FBVyxDQUFDLENBQUM7S0FDN0M7Q0FDRixDQUFDO0FBRUcsTUFBTUcsZUFBZSxHQUFHLFVBQThCO0lBQ3pELE9BQU9kLHlEQUFXLEVBQUUsQ0FBQ2MsZUFBZSxFQUFFLENBQUM7Q0FDMUMsQ0FBQztBQUthLFNBQVNDLGFBQWEsQ0FBQyxFQUFFQyxXQUFXLEdBQWdDLEVBQUU7SUFFakY7O2tFQUU4RCxDQUU5RDs7Ozs7O1NBTUssQ0FFTCxzQ0FBc0M7SUFDdEMsTUFBTUMsTUFBTSxHQUFHZixzREFBUyxFQUFFO0lBSzFCLElBQUdjLFdBQVcsQ0FBQ1osV0FBVyxJQUFJWSxXQUFXLENBQUNQLE9BQU8sS0FBS1MsU0FBUyxFQUFFO1FBQzdELElBQUksS0FBQ2QsV0FBVyxNQUFFZSxjQUFjLE1BQUlwQiwrQ0FBUSxDQUFDLEtBQUssQ0FBQztRQUVuRCxJQUFJcUIsaUJBQWlCLEdBQUd0QiwwRUFBZSxDQUFDa0IsV0FBVyxDQUFDUCxPQUFPLENBQUM7UUFDNUQscUJBQ0ksOERBQUNZLEtBQUc7WUFBQ0MsU0FBUyxFQUFDLGlNQUFpTTtzQkFDNU0sNEVBQUNDLFFBQU07Z0JBQUNDLE9BQU8sRUFBRSxJQUFNO29CQUFDQyxPQUFPLENBQUNDLEdBQUcsQ0FBQ3pCLHdEQUFVLENBQUM7d0JBQUMwQixlQUFlLEVBQUUsSUFBSTtxQkFBQyxDQUFDLENBQUMsQ0FBQztvQkFBQ1YsTUFBTSxDQUFDVyxNQUFNLEVBQUU7aUJBQUM7MEJBQ3JGLENBQUN4QixXQUFXLGtCQUFJLDhEQUFDaUIsS0FBRzs4QkFBRUQsaUJBQWlCOzs7Ozt3QkFBTzs7Ozs7b0JBRzFDOzs7OztnQkFDTixDQUVWO0tBRUo7SUFDRCxxQkFDSSw4REFBQ0MsS0FBRztRQUFDQyxTQUFTLEVBQUMsZ0tBQWdLO2tCQUMzSyw0RUFBQ0MsUUFBTTtZQUFDQyxPQUFPLEVBQUUsSUFBTVIsV0FBVyxDQUFDYSxrQkFBa0IsRUFBRTtzQkFBRSxnQkFFekQ7Ozs7O2dCQUFTOzs7OztZQUNQLENBQ1Q7Q0FHSjtBQUVEO0lBQ29CLEVBQThDO0lBQzlDLEVBQXdEIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vc25zLWZyb250ZW5kLy4vY29tcG9uZW50cy9Db25uZWN0V2FsbGV0L0Nvbm5lY3RXYWxsZXQudHN4PzMxODgiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlU3RhcmtuZXQsIHVzZUNvbm5lY3RvcnMgfSBmcm9tIFwiQHN0YXJrbmV0LXJlYWN0L2NvcmVcIjtcbmltcG9ydCB7IHRydW5jYXRlQWRkcmVzcyB9IGZyb20gXCIuLi8uLi9zZXJ2aWNlcy9hZGRyZXNzLnNlcnZpY2VcIjtcbmltcG9ydCB7IHVzZVN0YXRlIH0gZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgeyBnZXRTdGFya25ldCwgZGlzY29ubmVjdCB9IGZyb20gXCJnZXQtc3RhcmtuZXRcIjtcbmltcG9ydCB7IFdhbGxldFByb3BzIH0gZnJvbSBcIi4uLy4uL3BhZ2VzL19hcHBcIjtcbmltcG9ydCB7IHVzZVJvdXRlciB9IGZyb20gXCJuZXh0L3JvdXRlclwiO1xuXG5leHBvcnQgY29uc3QgaXNXYWxsZXRDb25uZWN0ZWQgPSAoKTogYm9vbGVhbiA9PiAhIWdldFN0YXJrbmV0KCk/LmlzQ29ubmVjdGVkO1xuXG5leHBvcnQgY29uc3QgY29ubmVjdFdhbGxldCA9IGFzeW5jICgpID0+XG4gIGF3YWl0IGdldFN0YXJrbmV0KCkuZW5hYmxlKHsgc2hvd01vZGFsOiB0cnVlIH0pO1xuXG5leHBvcnQgY29uc3Qgd2FsbGV0QWRkcmVzcyA9IGFzeW5jICgpOiBQcm9taXNlPHN0cmluZyB8IHVuZGVmaW5lZD4gPT4ge1xuICB0cnkge1xuICAgIGNvbnN0IFthZGRyZXNzXSA9IGF3YWl0IGdldFN0YXJrbmV0KCkuZW5hYmxlKCk7XG4gICAgcmV0dXJuIGFkZHJlc3M7XG4gIH0gY2F0Y2gge31cbn07XG5cbmV4cG9ydCBjb25zdCBhZGRXYWxsZXRDaGFuZ2VMaXN0ZW5lciA9IGFzeW5jIChcbiAgICBoYW5kbGVFdmVudDogKGFjY291bnRzOiBzdHJpbmdbXSkgPT4gdm9pZFxuICApID0+IHtcbiAgICBjb25zdCBzdGFya25ldCA9IGdldFN0YXJrbmV0KCk7XG4gICAgaWYgKHN0YXJrbmV0KSB7XG4gICAgICBzdGFya25ldC5vbihcImFjY291bnRzQ2hhbmdlZFwiLCBoYW5kbGVFdmVudCk7XG4gICAgfVxuICB9O1xuICBcbmV4cG9ydCBjb25zdCBpc1ByZWF1dGhvcml6ZWQgPSBhc3luYyAoKTogUHJvbWlzZTxib29sZWFuPiA9PiB7XG4gICAgcmV0dXJuIGdldFN0YXJrbmV0KCkuaXNQcmVhdXRob3JpemVkKCk7XG59O1xuXG5cblxuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBDb25uZWN0V2FsbGV0KHsgd2FsbGV0UHJvcHMgfTogeyB3YWxsZXRQcm9wczogV2FsbGV0UHJvcHMgfSkge1xuICAgIFxuICAgIC8qIFxuICAgIGNvbnN0IHsgYWNjb3VudCB9ID0gdXNlU3RhcmtuZXQoKTtcbiAgICBjb25zdCB7IGF2YWlsYWJsZSwgY29ubmVjdCwgZGlzY29ubmVjdCB9ID0gdXNlQ29ubmVjdG9ycygpOyAqL1xuXG4gICAgLyogY29uc3QgaGFuZGxlTW91c2VPdmVyID0gKCkgPT4ge1xuICAgICAgICBzZXRJc0Nvbm5lY3RlZCh0cnVlKTtcbiAgICB9O1xuICAgIFxuICAgIGNvbnN0IGhhbmRsZU1vdXNlT3V0ID0gKCkgPT4ge1xuICAgIHNldElzQ29ubmVjdGVkKGZhbHNlKTtcbiAgICB9OyAqL1xuXG4gICAgLy9jb25zdCBoZXkgPSB3YWxsZXRQcm9wcy5pc0Nvbm5lY3RlZDtcbiAgICBjb25zdCByb3V0ZXIgPSB1c2VSb3V0ZXIoKVxuXG4gICAgXG5cblxuICAgIGlmKHdhbGxldFByb3BzLmlzQ29ubmVjdGVkICYmIHdhbGxldFByb3BzLmFkZHJlc3MgIT09IHVuZGVmaW5lZCkge1xuICAgICAgICBsZXQgW2lzQ29ubmVjdGVkLCBzZXRJc0Nvbm5lY3RlZF0gPSB1c2VTdGF0ZShmYWxzZSk7XG5cbiAgICAgICAgbGV0IHRydW5jYXRlZEFkZGRyZXNzID0gdHJ1bmNhdGVBZGRyZXNzKHdhbGxldFByb3BzLmFkZHJlc3MpO1xuICAgICAgICByZXR1cm4gKFxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXNtIHNtOnRleHQtbGcgZmxleCBqdXN0aWZ5LWl0ZW1zIGFsaWduLWl0ZW1zIGN1cnNvci1wb2ludGVyIGJvcmRlci0yIHRleHQtYmx1ZS04MDAgYm9yZGVyLWJsdWUtODAwIGhvdmVyOnRleHQtcmVkLTYwMCBob3Zlcjpib3JkZXItcmVkLTYwMCBweC00IHNtOnB4LTYgcm91bmRlZC0zeGwgdHJhbnNpdGlvbiBlYXNlLWluLW91dFwiPlxuICAgICAgICAgICAgICAgIDxidXR0b24gb25DbGljaz17KCkgPT4ge2NvbnNvbGUubG9nKGRpc2Nvbm5lY3Qoe2NsZWFyTGFzdFdhbGxldDogdHJ1ZX0pKTsgcm91dGVyLnJlbG9hZCgpfX0+XG4gICAgICAgICAgICAgICAgICAgIHshaXNDb25uZWN0ZWQgJiYgPGRpdj57dHJ1bmNhdGVkQWRkZHJlc3N9PC9kaXY+fVxuICAgICAgICAgICAgICAgICBcblxuICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgXG4gICAgICAgIClcblxuICAgIH1cbiAgICByZXR1cm4gKFxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXgganVzdGlmeS1pdGVtcyBhbGlnbi1pdGVtcyB0ZXh0LXNtIHNtOnRleHQtbGcgY3Vyc29yLXBvaW50ZXIgYm9yZGVyLWJsdWUtODAwIGJvcmRlciB0ZXh0LXdoaXRlIGJnLWJsdWUtODAwIHB4LTQgc206cHgtNiByb3VuZGVkLTN4bCB0cmFuc2l0aW9uIGVhc2UtaW4tb3V0XCI+XG4gICAgICAgICAgICA8YnV0dG9uIG9uQ2xpY2s9eygpID0+IHdhbGxldFByb3BzLmhhbmRsZUNvbm5lY3RDbGljaygpfT5cbiAgICAgICAgICAgICAgICBDb25uZWN0IFdhbGxldFxuICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgIDwvZGl2PlxuICAgIClcblxuICAgIFxufVxuXG57LyogLyogb25DbGljaz17KCkgPT4gZGlzY29ubmVjdCgpIG9uTW91c2VPdmVyPXtoYW5kbGVNb3VzZU92ZXJ9IG9uTW91c2VPdXQ9e2hhbmRsZU1vdXNlT3V0fSAgKi9cbiAgICAgICAgICAgICAgICAgICAgey8qIHtpc0Nvbm5lY3RlZCAmJiA8ZGl2PkRpc2Nvbm5lY3Q8L2Rpdj59ICovfVxuICAgICAgICAgICAgICAgICAgICB7LyogeyFpc0Nvbm5lY3RlZCAmJiA8ZGl2Pnt0cnVuY2F0ZWRBZGRkcmVzc308L2Rpdj59ICovfSB9Il0sIm5hbWVzIjpbInRydW5jYXRlQWRkcmVzcyIsInVzZVN0YXRlIiwiZ2V0U3RhcmtuZXQiLCJkaXNjb25uZWN0IiwidXNlUm91dGVyIiwiaXNXYWxsZXRDb25uZWN0ZWQiLCJpc0Nvbm5lY3RlZCIsImNvbm5lY3RXYWxsZXQiLCJlbmFibGUiLCJzaG93TW9kYWwiLCJ3YWxsZXRBZGRyZXNzIiwiYWRkcmVzcyIsImFkZFdhbGxldENoYW5nZUxpc3RlbmVyIiwiaGFuZGxlRXZlbnQiLCJzdGFya25ldCIsIm9uIiwiaXNQcmVhdXRob3JpemVkIiwiQ29ubmVjdFdhbGxldCIsIndhbGxldFByb3BzIiwicm91dGVyIiwidW5kZWZpbmVkIiwic2V0SXNDb25uZWN0ZWQiLCJ0cnVuY2F0ZWRBZGRkcmVzcyIsImRpdiIsImNsYXNzTmFtZSIsImJ1dHRvbiIsIm9uQ2xpY2siLCJjb25zb2xlIiwibG9nIiwiY2xlYXJMYXN0V2FsbGV0IiwicmVsb2FkIiwiaGFuZGxlQ29ubmVjdENsaWNrIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./components/ConnectWallet/ConnectWallet.tsx\n");
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ _app)
-});
+/***/ }),
 
-// EXTERNAL MODULE: external "react/jsx-runtime"
-var jsx_runtime_ = __webpack_require__(997);
-// EXTERNAL MODULE: ./node_modules/next/image.js
-var next_image = __webpack_require__(5675);
-var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
-// EXTERNAL MODULE: ./node_modules/next/link.js
-var next_link = __webpack_require__(1664);
-var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
-// EXTERNAL MODULE: ./node_modules/next/dynamic.js
-var dynamic = __webpack_require__(5152);
-var dynamic_default = /*#__PURE__*/__webpack_require__.n(dynamic);
-;// CONCATENATED MODULE: ./components/ConnectWallet/index.tsx
+/***/ "./pages/_app.tsx":
+/*!************************!*\
+  !*** ./pages/_app.tsx ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-/*
- * The connect wallet interface displays the list of StarkNet wallets
- * that the user has installed. This list depends on the browser environment
- * and so Next.js will complain about the server rendered version mismatch
- * the version rendered in the browser.
- *
- * Solve this issue by wrapping the "real" connect wallet component in
- * a dynamic component that is only rendered in the browser.
- */ const ConnectWallet = dynamic_default()(null, {
-    loadableGenerated: {
-        modules: [
-            "../components/ConnectWallet/index.tsx -> " + "./ConnectWallet"
-        ]
-    },
-    ssr: false
-});
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _styles_globals_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/globals.scss */ \"./styles/globals.scss\");\n/* harmony import */ var _styles_globals_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_globals_scss__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/head */ \"next/head\");\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _starknet_react_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @starknet-react/core */ \"@starknet-react/core\");\n/* harmony import */ var _starknet_react_core__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_starknet_react_core__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/router */ \"next/router\");\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _components_ConnectWallet_ConnectWallet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/ConnectWallet/ConnectWallet */ \"./components/ConnectWallet/ConnectWallet.tsx\");\n\n\n\n\n\n\n\nfunction MyApp({ Component , pageProps  }) {\n    const router = (0,next_router__WEBPACK_IMPORTED_MODULE_5__.useRouter)();\n    const connectors = (0,_starknet_react_core__WEBPACK_IMPORTED_MODULE_3__.getInstalledInjectedConnectors)();\n    const { 0: isConnected , 1: setIsConnected  } = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)((0,_components_ConnectWallet_ConnectWallet__WEBPACK_IMPORTED_MODULE_6__.isWalletConnected)());\n    const { 0: address , 1: setAddress  } = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)();\n    (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(()=>{\n        try {\n            (0,_components_ConnectWallet_ConnectWallet__WEBPACK_IMPORTED_MODULE_6__.addWalletChangeListener)((accounts)=>{\n                if (accounts.length > 0) {\n                    setAddress(accounts[0]);\n                } else {\n                    setAddress(\"\");\n                    setIsConnected(false);\n                }\n            });\n        } catch  {\n            router.push(\"/\");\n        }\n    }, []);\n    /* useEffect(() => {\n    (async () => {\n      if (await isPreauthorized()) {\n        await handleConnectClick();\n      }\n    })();\n  }, []); */ const handleConnectClick = async ()=>{\n        await (0,_components_ConnectWallet_ConnectWallet__WEBPACK_IMPORTED_MODULE_6__.connectWallet)();\n        setIsConnected((0,_components_ConnectWallet_ConnectWallet__WEBPACK_IMPORTED_MODULE_6__.isWalletConnected)());\n        setAddress(await (0,_components_ConnectWallet_ConnectWallet__WEBPACK_IMPORTED_MODULE_6__.walletAddress)());\n    };\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_starknet_react_core__WEBPACK_IMPORTED_MODULE_3__.StarknetProvider, {\n        autoConnect: true,\n        connectors: connectors,\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_head__WEBPACK_IMPORTED_MODULE_2___default()), {\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"title\", {\n                        children: \"SNS\"\n                    }, void 0, false, {\n                        fileName: \"/home/dmesg/starknames/starknames/pages/_app.tsx\",\n                        lineNumber: 65,\n                        columnNumber: 9\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"link\", {\n                        rel: \"icon\",\n                        href: \"/starkname_transparent.png\"\n                    }, void 0, false, {\n                        fileName: \"/home/dmesg/starknames/starknames/pages/_app.tsx\",\n                        lineNumber: 66,\n                        columnNumber: 9\n                    }, this)\n                ]\n            }, void 0, true, {\n                fileName: \"/home/dmesg/starknames/starknames/pages/_app.tsx\",\n                lineNumber: 64,\n                columnNumber: 7\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"h-screen flex justify-center bg-white-custom montserrat font-medium\",\n                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(Component, {\n                    walletProps: {\n                        isConnected,\n                        address,\n                        handleConnectClick\n                    },\n                    ...pageProps\n                }, void 0, false, {\n                    fileName: \"/home/dmesg/starknames/starknames/pages/_app.tsx\",\n                    lineNumber: 70,\n                    columnNumber: 9\n                }, this)\n            }, void 0, false, {\n                fileName: \"/home/dmesg/starknames/starknames/pages/_app.tsx\",\n                lineNumber: 68,\n                columnNumber: 7\n            }, this)\n        ]\n    }, void 0, true, {\n        fileName: \"/home/dmesg/starknames/starknames/pages/_app.tsx\",\n        lineNumber: 63,\n        columnNumber: 5\n    }, this);\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MyApp);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9fYXBwLnRzeC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7OztBQUFBO0FBQWdDO0FBQ0g7QUFDMkQ7QUFDNUM7QUFDSjtBQVFVO0FBY2xELFNBQVNVLEtBQUssQ0FBQyxFQUFFQyxTQUFTLEdBQUVDLFNBQVMsR0FBWSxFQUFFO0lBQ2pELE1BQU1DLE1BQU0sR0FBR1Isc0RBQVMsRUFBRTtJQUMxQixNQUFNUyxVQUFVLEdBQUdiLG9GQUE4QixFQUFFO0lBRW5ELE1BQU0sS0FBQ2MsV0FBVyxNQUFFQyxjQUFjLE1BQUliLCtDQUFRLENBQUNJLDBGQUFpQixFQUFFLENBQUM7SUFDbkUsTUFBTSxLQUFDVSxPQUFPLE1BQUVDLFVBQVUsTUFBSWYsK0NBQVEsRUFBVTtJQUNoREMsZ0RBQVMsQ0FBQyxJQUFNO1FBQ2QsSUFBSTtZQUNGSyxnR0FBdUIsQ0FBQyxDQUFDVSxRQUFRLEdBQUs7Z0JBQ3BDLElBQUlBLFFBQVEsQ0FBQ0MsTUFBTSxHQUFHLENBQUMsRUFBRTtvQkFDdkJGLFVBQVUsQ0FBQ0MsUUFBUSxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUM7aUJBQ3pCLE1BQU07b0JBQ0xELFVBQVUsQ0FBQyxFQUFFLENBQUMsQ0FBQztvQkFDZkYsY0FBYyxDQUFDLEtBQUssQ0FBQyxDQUFDO2lCQUN2QjthQUNGLENBQUMsQ0FBQztTQUNKLENBQUMsT0FBTTtZQUNOSCxNQUFNLENBQUNRLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQztTQUNsQjtLQUNGLEVBQUUsRUFBRSxDQUFDLENBQUM7SUFDUDs7Ozs7O1lBTVUsQ0FFVixNQUFNQyxrQkFBa0IsR0FBRyxVQUFZO1FBQ3JDLE1BQU1oQixzRkFBYSxFQUFFLENBQUM7UUFDdEJVLGNBQWMsQ0FBQ1QsMEZBQWlCLEVBQUUsQ0FBQyxDQUFDO1FBQ3BDVyxVQUFVLENBQUMsTUFBTVYsc0ZBQWEsRUFBRSxDQUFDLENBQUM7S0FDbkM7SUFHRCxxQkFDRSw4REFBQ04sa0VBQWdCO1FBQUNxQixXQUFXO1FBQUNULFVBQVUsRUFBRUEsVUFBVTs7MEJBQ2xELDhEQUFDZCxrREFBSTs7a0NBQ0gsOERBQUN3QixPQUFLO2tDQUFDLEtBQUc7Ozs7OzRCQUFRO2tDQUNsQiw4REFBQ0MsTUFBSTt3QkFBQ0MsR0FBRyxFQUFDLE1BQU07d0JBQUNDLElBQUksRUFBQyw0QkFBNEI7Ozs7OzRCQUFROzs7Ozs7b0JBQ3JEOzBCQUNQLDhEQUFDQyxLQUFHO2dCQUFDQyxTQUFTLEVBQUMscUVBQXFFOzBCQUVsRiw0RUFBQ2xCLFNBQVM7b0JBQ1JtQixXQUFXLEVBQUU7d0JBQUVmLFdBQVc7d0JBQUVFLE9BQU87d0JBQUVLLGtCQUFrQjtxQkFBRTtvQkFDeEQsR0FBR1YsU0FBUzs7Ozs7d0JBQ2I7Ozs7O29CQUVFOzs7Ozs7WUFDWSxDQUdyQjtDQUNGO0FBRUQsaUVBQWVGLEtBQUsiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zbnMtZnJvbnRlbmQvLi9wYWdlcy9fYXBwLnRzeD8yZmJlIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAnLi4vc3R5bGVzL2dsb2JhbHMuc2Nzcyc7XG5pbXBvcnQgSGVhZCBmcm9tIFwibmV4dC9oZWFkXCI7XG5pbXBvcnQgeyBnZXRJbnN0YWxsZWRJbmplY3RlZENvbm5lY3RvcnMsIFN0YXJrbmV0UHJvdmlkZXIgfSBmcm9tIFwiQHN0YXJrbmV0LXJlYWN0L2NvcmVcIjtcbmltcG9ydCB7IHVzZVN0YXRlLCB1c2VFZmZlY3QgfSBmcm9tIFwicmVhY3RcIjtcbmltcG9ydCB7IHVzZVJvdXRlciB9IGZyb20gXCJuZXh0L3JvdXRlclwiO1xuaW1wb3J0IHR5cGUgeyBBcHBQcm9wcyB9IGZyb20gXCJuZXh0L2FwcFwiO1xuaW1wb3J0IHtcbiAgY29ubmVjdFdhbGxldCxcbiAgaXNQcmVhdXRob3JpemVkLFxuICBpc1dhbGxldENvbm5lY3RlZCxcbiAgd2FsbGV0QWRkcmVzcyxcbiAgYWRkV2FsbGV0Q2hhbmdlTGlzdGVuZXIsXG59IGZyb20gXCIuLi9jb21wb25lbnRzL0Nvbm5lY3RXYWxsZXQvQ29ubmVjdFdhbGxldFwiXG5cblxuXG5cbmV4cG9ydCBpbnRlcmZhY2UgV2FsbGV0UHJvcHMge1xuICBpc0Nvbm5lY3RlZDogYm9vbGVhbjtcbiAgYWRkcmVzczogc3RyaW5nO1xuICBoYW5kbGVDb25uZWN0Q2xpY2s6ICgpID0+IHZvaWQ7XG59XG5cblxuXG5cbmZ1bmN0aW9uIE15QXBwKHsgQ29tcG9uZW50LCBwYWdlUHJvcHMgfTogQXBwUHJvcHMpIHtcbiAgY29uc3Qgcm91dGVyID0gdXNlUm91dGVyKCk7XG4gIGNvbnN0IGNvbm5lY3RvcnMgPSBnZXRJbnN0YWxsZWRJbmplY3RlZENvbm5lY3RvcnMoKTtcbiAgXG4gIGNvbnN0IFtpc0Nvbm5lY3RlZCwgc2V0SXNDb25uZWN0ZWRdID0gdXNlU3RhdGUoaXNXYWxsZXRDb25uZWN0ZWQoKSk7XG4gIGNvbnN0IFthZGRyZXNzLCBzZXRBZGRyZXNzXSA9IHVzZVN0YXRlPHN0cmluZz4oKTtcbiAgdXNlRWZmZWN0KCgpID0+IHtcbiAgICB0cnkge1xuICAgICAgYWRkV2FsbGV0Q2hhbmdlTGlzdGVuZXIoKGFjY291bnRzKSA9PiB7XG4gICAgICAgIGlmIChhY2NvdW50cy5sZW5ndGggPiAwKSB7XG4gICAgICAgICAgc2V0QWRkcmVzcyhhY2NvdW50c1swXSk7XG4gICAgICAgIH0gZWxzZSB7XG4gICAgICAgICAgc2V0QWRkcmVzcyhcIlwiKTtcbiAgICAgICAgICBzZXRJc0Nvbm5lY3RlZChmYWxzZSk7XG4gICAgICAgIH1cbiAgICAgIH0pO1xuICAgIH0gY2F0Y2gge1xuICAgICAgcm91dGVyLnB1c2goXCIvXCIpO1xuICAgIH1cbiAgfSwgW10pO1xuICAvKiB1c2VFZmZlY3QoKCkgPT4ge1xuICAgIChhc3luYyAoKSA9PiB7XG4gICAgICBpZiAoYXdhaXQgaXNQcmVhdXRob3JpemVkKCkpIHtcbiAgICAgICAgYXdhaXQgaGFuZGxlQ29ubmVjdENsaWNrKCk7XG4gICAgICB9XG4gICAgfSkoKTtcbiAgfSwgW10pOyAqL1xuXG4gIGNvbnN0IGhhbmRsZUNvbm5lY3RDbGljayA9IGFzeW5jICgpID0+IHtcbiAgICBhd2FpdCBjb25uZWN0V2FsbGV0KCk7XG4gICAgc2V0SXNDb25uZWN0ZWQoaXNXYWxsZXRDb25uZWN0ZWQoKSk7XG4gICAgc2V0QWRkcmVzcyhhd2FpdCB3YWxsZXRBZGRyZXNzKCkpO1xuICB9O1xuXG5cbiAgcmV0dXJuIChcbiAgICA8U3RhcmtuZXRQcm92aWRlciBhdXRvQ29ubmVjdCBjb25uZWN0b3JzPXtjb25uZWN0b3JzfT5cbiAgICAgIDxIZWFkPlxuICAgICAgICA8dGl0bGU+U05TPC90aXRsZT5cbiAgICAgICAgPGxpbmsgcmVsPSdpY29uJyBocmVmPVwiL3N0YXJrbmFtZV90cmFuc3BhcmVudC5wbmdcIj48L2xpbms+XG4gICAgICA8L0hlYWQ+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImgtc2NyZWVuIGZsZXgganVzdGlmeS1jZW50ZXIgYmctd2hpdGUtY3VzdG9tIG1vbnRzZXJyYXQgZm9udC1tZWRpdW1cIj5cbiAgICAgICAgICBcbiAgICAgICAgPENvbXBvbmVudFxuICAgICAgICAgIHdhbGxldFByb3BzPXt7IGlzQ29ubmVjdGVkLCBhZGRyZXNzLCBoYW5kbGVDb25uZWN0Q2xpY2sgfX1cbiAgICAgICAgICB7Li4ucGFnZVByb3BzfVxuICAgICAgICAvPiBcblxuICAgICAgPC9kaXY+XG4gICAgPC9TdGFya25ldFByb3ZpZGVyID5cbiAgICBcblxuICApXG59XG5cbmV4cG9ydCBkZWZhdWx0IE15QXBwXG4iXSwibmFtZXMiOlsiSGVhZCIsImdldEluc3RhbGxlZEluamVjdGVkQ29ubmVjdG9ycyIsIlN0YXJrbmV0UHJvdmlkZXIiLCJ1c2VTdGF0ZSIsInVzZUVmZmVjdCIsInVzZVJvdXRlciIsImNvbm5lY3RXYWxsZXQiLCJpc1dhbGxldENvbm5lY3RlZCIsIndhbGxldEFkZHJlc3MiLCJhZGRXYWxsZXRDaGFuZ2VMaXN0ZW5lciIsIk15QXBwIiwiQ29tcG9uZW50IiwicGFnZVByb3BzIiwicm91dGVyIiwiY29ubmVjdG9ycyIsImlzQ29ubmVjdGVkIiwic2V0SXNDb25uZWN0ZWQiLCJhZGRyZXNzIiwic2V0QWRkcmVzcyIsImFjY291bnRzIiwibGVuZ3RoIiwicHVzaCIsImhhbmRsZUNvbm5lY3RDbGljayIsImF1dG9Db25uZWN0IiwidGl0bGUiLCJsaW5rIiwicmVsIiwiaHJlZiIsImRpdiIsImNsYXNzTmFtZSIsIndhbGxldFByb3BzIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./pages/_app.tsx\n");
 
-;// CONCATENATED MODULE: ./components/header.tsx
+/***/ }),
 
+/***/ "./services/address.service.tsx":
+/*!**************************************!*\
+  !*** ./services/address.service.tsx ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"GOERLI_DEFAULT_RESOLVER_CONTRACT_ADDRESS\": () => (/* binding */ GOERLI_DEFAULT_RESOLVER_CONTRACT_ADDRESS),\n/* harmony export */   \"formatAddress\": () => (/* binding */ formatAddress),\n/* harmony export */   \"getRegistryAddress\": () => (/* binding */ getRegistryAddress),\n/* harmony export */   \"getResolverAddress\": () => (/* binding */ getResolverAddress),\n/* harmony export */   \"truncateAddress\": () => (/* binding */ truncateAddress)\n/* harmony export */ });\n/* harmony import */ var starknet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! starknet */ \"starknet\");\n/* harmony import */ var starknet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(starknet__WEBPACK_IMPORTED_MODULE_0__);\n\nconst formatAddress = (address)=>starknet__WEBPACK_IMPORTED_MODULE_0__.encode.addHexPrefix(starknet__WEBPACK_IMPORTED_MODULE_0__.encode.removeHexPrefix(address).padStart(64, \"0\"));\nconst truncateAddress = (fullAddress)=>{\n    const address = formatAddress(fullAddress);\n    const hex = address.slice(0, 2);\n    const start = address.slice(2, 6);\n    const end = address.slice(-4);\n    return `${hex}${start}...${end}`;\n};\nconst GOERLI_DEFAULT_REGISTRY_CONTRACT_ADDRESS = \"0x06642df6ff8b3bbeee0a87d65d72424a212fd0a09229c238ab1e1fe9e1ccacf0\";\nconst getRegistryAddress = (network)=>{\n    if (network == \"mainnet-alpha\") {\n        throw new Error(\"Not deployed on mainnet yet\");\n    } else if (network === \"goerli-alpha\") {\n        return GOERLI_DEFAULT_REGISTRY_CONTRACT_ADDRESS;\n    } else if (network === \"localhost\") {\n        throw new Error(\"Unknown contract address on localhost. Add address in `src/services/address.service.ts\");\n    } else {\n        throw new Error(\"Unknown network type\");\n    }\n};\nconst GOERLI_DEFAULT_RESOLVER_CONTRACT_ADDRESS = \"0x038c8b26c8df1b410c1a355af791464681509b028b2be615f24c8b8039c33b78\";\nconst getResolverAddress = (network)=>{\n    if (network == \"mainnet-alpha\") {\n        throw new Error(\"Not deployed on mainnet yet\");\n    } else if (network === \"goerli-alpha\") {\n        return GOERLI_DEFAULT_RESOLVER_CONTRACT_ADDRESS;\n    } else if (network === \"localhost\") {\n        throw new Error(\"Unknown contract address on localhost. Add address in `src/services/address.service.ts\");\n    } else {\n        throw new Error(\"Unknown network type\");\n    }\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zZXJ2aWNlcy9hZGRyZXNzLnNlcnZpY2UudHN4LmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFBa0M7QUFFM0IsTUFBTUMsYUFBYSxHQUFHLENBQUNDLE9BQU8sR0FDbkNGLHlEQUFtQixDQUFDQSw0REFBc0IsQ0FBQ0UsT0FBTyxDQUFDLENBQUNHLFFBQVEsQ0FBQyxFQUFFLEVBQUUsR0FBRyxDQUFDLENBQUMsQ0FBQztBQUVsRSxNQUFNQyxlQUFlLEdBQUcsQ0FBQ0MsV0FBVyxHQUFLO0lBQzlDLE1BQU1MLE9BQU8sR0FBR0QsYUFBYSxDQUFDTSxXQUFXLENBQUM7SUFFMUMsTUFBTUMsR0FBRyxHQUFHTixPQUFPLENBQUNPLEtBQUssQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDO0lBQy9CLE1BQU1DLEtBQUssR0FBR1IsT0FBTyxDQUFDTyxLQUFLLENBQUMsQ0FBQyxFQUFFLENBQUMsQ0FBQztJQUNqQyxNQUFNRSxHQUFHLEdBQUdULE9BQU8sQ0FBQ08sS0FBSyxDQUFDLENBQUMsQ0FBQyxDQUFDO0lBQzdCLE9BQU8sQ0FBQyxFQUFFRCxHQUFHLENBQUMsRUFBRUUsS0FBSyxDQUFDLEdBQUcsRUFBRUMsR0FBRyxDQUFDLENBQUMsQ0FBQztDQUNsQyxDQUFDO0FBRUYsTUFBTUMsd0NBQXdDLEdBQUcsb0VBQW9FO0FBRTlHLE1BQU1DLGtCQUFrQixHQUFHLENBQUNDLE9BQU8sR0FBSztJQUM3QyxJQUFJQSxPQUFPLElBQUksZUFBZSxFQUFFO1FBQzlCLE1BQU0sSUFBSUMsS0FBSyxDQUFDLDZCQUE2QixDQUFDLENBQUM7S0FDaEQsTUFBTSxJQUFJRCxPQUFPLEtBQUssY0FBYyxFQUFFO1FBQ3JDLE9BQU9GLHdDQUF3QyxDQUFDO0tBQ2pELE1BQU0sSUFBSUUsT0FBTyxLQUFLLFdBQVcsRUFBRTtRQUNsQyxNQUFNLElBQUlDLEtBQUssQ0FDYix3RkFBd0YsQ0FDekYsQ0FBQztLQUNILE1BQU07UUFDTCxNQUFNLElBQUlBLEtBQUssQ0FBQyxzQkFBc0IsQ0FBQyxDQUFDO0tBQ3pDO0NBQ0YsQ0FBQztBQUVLLE1BQU1DLHdDQUF3QyxHQUNuRCxvRUFBb0UsQ0FBQztBQUU5RCxNQUFNQyxrQkFBa0IsR0FBRyxDQUFDSCxPQUFPLEdBQUs7SUFDN0MsSUFBSUEsT0FBTyxJQUFJLGVBQWUsRUFBRTtRQUM5QixNQUFNLElBQUlDLEtBQUssQ0FBQyw2QkFBNkIsQ0FBQyxDQUFDO0tBQ2hELE1BQU0sSUFBSUQsT0FBTyxLQUFLLGNBQWMsRUFBRTtRQUNyQyxPQUFPRSx3Q0FBd0MsQ0FBQztLQUNqRCxNQUFNLElBQUlGLE9BQU8sS0FBSyxXQUFXLEVBQUU7UUFDbEMsTUFBTSxJQUFJQyxLQUFLLENBQ2Isd0ZBQXdGLENBQ3pGLENBQUM7S0FDSCxNQUFNO1FBQ0wsTUFBTSxJQUFJQSxLQUFLLENBQUMsc0JBQXNCLENBQUMsQ0FBQztLQUN6QztDQUNGLENBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zbnMtZnJvbnRlbmQvLi9zZXJ2aWNlcy9hZGRyZXNzLnNlcnZpY2UudHN4PzAzYjciXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgZW5jb2RlIH0gZnJvbSBcInN0YXJrbmV0XCI7XG5cbmV4cG9ydCBjb25zdCBmb3JtYXRBZGRyZXNzID0gKGFkZHJlc3MpID0+XG4gIGVuY29kZS5hZGRIZXhQcmVmaXgoZW5jb2RlLnJlbW92ZUhleFByZWZpeChhZGRyZXNzKS5wYWRTdGFydCg2NCwgXCIwXCIpKTtcblxuZXhwb3J0IGNvbnN0IHRydW5jYXRlQWRkcmVzcyA9IChmdWxsQWRkcmVzcykgPT4ge1xuICBjb25zdCBhZGRyZXNzID0gZm9ybWF0QWRkcmVzcyhmdWxsQWRkcmVzcyk7XG5cbiAgY29uc3QgaGV4ID0gYWRkcmVzcy5zbGljZSgwLCAyKTtcbiAgY29uc3Qgc3RhcnQgPSBhZGRyZXNzLnNsaWNlKDIsIDYpO1xuICBjb25zdCBlbmQgPSBhZGRyZXNzLnNsaWNlKC00KTtcbiAgcmV0dXJuIGAke2hleH0ke3N0YXJ0fS4uLiR7ZW5kfWA7XG59O1xuXG5jb25zdCBHT0VSTElfREVGQVVMVF9SRUdJU1RSWV9DT05UUkFDVF9BRERSRVNTID0gXCIweDA2NjQyZGY2ZmY4YjNiYmVlZTBhODdkNjVkNzI0MjRhMjEyZmQwYTA5MjI5YzIzOGFiMWUxZmU5ZTFjY2FjZjBcIjtcblxuZXhwb3J0IGNvbnN0IGdldFJlZ2lzdHJ5QWRkcmVzcyA9IChuZXR3b3JrKSA9PiB7XG4gIGlmIChuZXR3b3JrID09IFwibWFpbm5ldC1hbHBoYVwiKSB7XG4gICAgdGhyb3cgbmV3IEVycm9yKFwiTm90IGRlcGxveWVkIG9uIG1haW5uZXQgeWV0XCIpO1xuICB9IGVsc2UgaWYgKG5ldHdvcmsgPT09IFwiZ29lcmxpLWFscGhhXCIpIHtcbiAgICByZXR1cm4gR09FUkxJX0RFRkFVTFRfUkVHSVNUUllfQ09OVFJBQ1RfQUREUkVTUztcbiAgfSBlbHNlIGlmIChuZXR3b3JrID09PSBcImxvY2FsaG9zdFwiKSB7XG4gICAgdGhyb3cgbmV3IEVycm9yKFxuICAgICAgXCJVbmtub3duIGNvbnRyYWN0IGFkZHJlc3Mgb24gbG9jYWxob3N0LiBBZGQgYWRkcmVzcyBpbiBgc3JjL3NlcnZpY2VzL2FkZHJlc3Muc2VydmljZS50c1wiXG4gICAgKTtcbiAgfSBlbHNlIHtcbiAgICB0aHJvdyBuZXcgRXJyb3IoXCJVbmtub3duIG5ldHdvcmsgdHlwZVwiKTtcbiAgfVxufTtcblxuZXhwb3J0IGNvbnN0IEdPRVJMSV9ERUZBVUxUX1JFU09MVkVSX0NPTlRSQUNUX0FERFJFU1MgPVxuICBcIjB4MDM4YzhiMjZjOGRmMWI0MTBjMWEzNTVhZjc5MTQ2NDY4MTUwOWIwMjhiMmJlNjE1ZjI0YzhiODAzOWMzM2I3OFwiO1xuXG4gIGV4cG9ydCBjb25zdCBnZXRSZXNvbHZlckFkZHJlc3MgPSAobmV0d29yaykgPT4ge1xuICAgIGlmIChuZXR3b3JrID09IFwibWFpbm5ldC1hbHBoYVwiKSB7XG4gICAgICB0aHJvdyBuZXcgRXJyb3IoXCJOb3QgZGVwbG95ZWQgb24gbWFpbm5ldCB5ZXRcIik7XG4gICAgfSBlbHNlIGlmIChuZXR3b3JrID09PSBcImdvZXJsaS1hbHBoYVwiKSB7XG4gICAgICByZXR1cm4gR09FUkxJX0RFRkFVTFRfUkVTT0xWRVJfQ09OVFJBQ1RfQUREUkVTUztcbiAgICB9IGVsc2UgaWYgKG5ldHdvcmsgPT09IFwibG9jYWxob3N0XCIpIHtcbiAgICAgIHRocm93IG5ldyBFcnJvcihcbiAgICAgICAgXCJVbmtub3duIGNvbnRyYWN0IGFkZHJlc3Mgb24gbG9jYWxob3N0LiBBZGQgYWRkcmVzcyBpbiBgc3JjL3NlcnZpY2VzL2FkZHJlc3Muc2VydmljZS50c1wiXG4gICAgICApO1xuICAgIH0gZWxzZSB7XG4gICAgICB0aHJvdyBuZXcgRXJyb3IoXCJVbmtub3duIG5ldHdvcmsgdHlwZVwiKTtcbiAgICB9XG4gIH07Il0sIm5hbWVzIjpbImVuY29kZSIsImZvcm1hdEFkZHJlc3MiLCJhZGRyZXNzIiwiYWRkSGV4UHJlZml4IiwicmVtb3ZlSGV4UHJlZml4IiwicGFkU3RhcnQiLCJ0cnVuY2F0ZUFkZHJlc3MiLCJmdWxsQWRkcmVzcyIsImhleCIsInNsaWNlIiwic3RhcnQiLCJlbmQiLCJHT0VSTElfREVGQVVMVF9SRUdJU1RSWV9DT05UUkFDVF9BRERSRVNTIiwiZ2V0UmVnaXN0cnlBZGRyZXNzIiwibmV0d29yayIsIkVycm9yIiwiR09FUkxJX0RFRkFVTFRfUkVTT0xWRVJfQ09OVFJBQ1RfQUREUkVTUyIsImdldFJlc29sdmVyQWRkcmVzcyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./services/address.service.tsx\n");
 
+/***/ }),
 
-function Header() {
-    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-        className: "font-medium mt-5 text-xl flex w-full justify-between h-14 backdrop-blur",
-        children: [
-            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                className: "flex space-x-2 pb-3",
-                children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        className: "hover:animate-spin transition ease-in-out",
-                        children: /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
-                            href: "/",
-                            children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                                children: /*#__PURE__*/ jsx_runtime_.jsx((image_default()), {
-                                    src: "/starkname_transparent.png",
-                                    width: 50,
-                                    height: 45
-                                })
-                            })
-                        })
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
-                        href: "/",
-                        children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                            children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                className: "mt-1 text-3xl font-bold",
-                                children: "starknames"
-                            })
-                        })
-                    })
-                ]
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                className: "",
-                children: /*#__PURE__*/ jsx_runtime_.jsx(ConnectWallet, {})
-            })
-        ]
-    });
-}; // when loading, make it spin
+/***/ "./styles/globals.scss":
+/*!*****************************!*\
+  !*** ./styles/globals.scss ***!
+  \*****************************/
+/***/ (() => {
 
-;// CONCATENATED MODULE: external "next/head"
-const head_namespaceObject = require("next/head");
-var head_default = /*#__PURE__*/__webpack_require__.n(head_namespaceObject);
-// EXTERNAL MODULE: external "@starknet-react/core"
-var core_ = __webpack_require__(8653);
-;// CONCATENATED MODULE: ./pages/_app.tsx
-
-
-
-
-
-function MyApp({ Component , pageProps  }) {
-    const connectors = (0,core_.getInstalledInjectedConnectors)();
-    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(core_.StarknetProvider, {
-        connectors: connectors,
-        autoConnect: true,
-        children: [
-            /*#__PURE__*/ (0,jsx_runtime_.jsxs)((head_default()), {
-                children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx("title", {
-                        children: "SNS"
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("link", {
-                        rel: "icon",
-                        href: "/starkname_transparent.png"
-                    })
-                ]
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                className: "h-screen flex justify-center",
-                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                    className: "max-w-6xl w-full mx-3",
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx(Header, {}),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: "flex justify-center mt-12 xl:mt-16",
-                            children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                className: "wrap",
-                                children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                    className: "neptun",
-                                    children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                        className: "logo",
-                                        children: "SNS"
-                                    })
-                                })
-                            })
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx(Component, {
-                            ...pageProps
-                        })
-                    ]
-                })
-            })
-        ]
-    });
-}
-/* harmony default export */ const _app = (MyApp);
 
 
 /***/ }),
 
-/***/ 8653:
+/***/ "@starknet-react/core":
+/*!***************************************!*\
+  !*** external "@starknet-react/core" ***!
+  \***************************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("@starknet-react/core");
 
 /***/ }),
 
-/***/ 3280:
+/***/ "get-starknet":
+/*!*******************************!*\
+  !*** external "get-starknet" ***!
+  \*******************************/
 /***/ ((module) => {
 
-module.exports = require("next/dist/shared/lib/app-router-context.js");
+"use strict";
+module.exports = require("get-starknet");
 
 /***/ }),
 
-/***/ 2796:
+/***/ "next/head":
+/*!****************************!*\
+  !*** external "next/head" ***!
+  \****************************/
 /***/ ((module) => {
 
-module.exports = require("next/dist/shared/lib/head-manager-context.js");
+"use strict";
+module.exports = require("next/head");
 
 /***/ }),
 
-/***/ 4957:
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
 /***/ ((module) => {
 
-module.exports = require("next/dist/shared/lib/head.js");
+"use strict";
+module.exports = require("next/router");
 
 /***/ }),
 
-/***/ 4014:
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
 /***/ ((module) => {
 
-module.exports = require("next/dist/shared/lib/i18n/normalize-locale-path.js");
-
-/***/ }),
-
-/***/ 744:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/image-config-context.js");
-
-/***/ }),
-
-/***/ 5843:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/image-config.js");
-
-/***/ }),
-
-/***/ 8524:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/is-plain-object.js");
-
-/***/ }),
-
-/***/ 5832:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/loadable.js");
-
-/***/ }),
-
-/***/ 8020:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/mitt.js");
-
-/***/ }),
-
-/***/ 4406:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/page-path/denormalize-page-path.js");
-
-/***/ }),
-
-/***/ 4964:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router-context.js");
-
-/***/ }),
-
-/***/ 1751:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix.js");
-
-/***/ }),
-
-/***/ 299:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/format-next-pathname-info.js");
-
-/***/ }),
-
-/***/ 3938:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/format-url.js");
-
-/***/ }),
-
-/***/ 9565:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/get-asset-path-from-route.js");
-
-/***/ }),
-
-/***/ 5789:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/get-next-pathname-info.js");
-
-/***/ }),
-
-/***/ 1428:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/is-dynamic.js");
-
-/***/ }),
-
-/***/ 8854:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/parse-path.js");
-
-/***/ }),
-
-/***/ 1292:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/parse-relative-url.js");
-
-/***/ }),
-
-/***/ 4567:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/path-has-prefix.js");
-
-/***/ }),
-
-/***/ 979:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/querystring.js");
-
-/***/ }),
-
-/***/ 3297:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/remove-trailing-slash.js");
-
-/***/ }),
-
-/***/ 6052:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/resolve-rewrites.js");
-
-/***/ }),
-
-/***/ 4226:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/route-matcher.js");
-
-/***/ }),
-
-/***/ 5052:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/router/utils/route-regex.js");
-
-/***/ }),
-
-/***/ 9232:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/utils.js");
-
-/***/ }),
-
-/***/ 6689:
-/***/ ((module) => {
-
+"use strict";
 module.exports = require("react");
 
 /***/ }),
 
-/***/ 997:
+/***/ "react/jsx-dev-runtime":
+/*!****************************************!*\
+  !*** external "react/jsx-dev-runtime" ***!
+  \****************************************/
 /***/ ((module) => {
 
-module.exports = require("react/jsx-runtime");
+"use strict";
+module.exports = require("react/jsx-dev-runtime");
+
+/***/ }),
+
+/***/ "starknet":
+/*!***************************!*\
+  !*** external "starknet" ***!
+  \***************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("starknet");
 
 /***/ })
 
@@ -361,7 +139,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [311,675,952,142], () => (__webpack_exec__(8044)));
+var __webpack_exports__ = (__webpack_exec__("./pages/_app.tsx"));
 module.exports = __webpack_exports__;
 
 })();

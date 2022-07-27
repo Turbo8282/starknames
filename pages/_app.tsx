@@ -1,29 +1,77 @@
 import '../styles/globals.scss';
-import Header from "../components/header";
 import Head from "next/head";
 import { getInstalledInjectedConnectors, StarknetProvider } from "@starknet-react/core";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import type { AppProps } from "next/app";
+import {
+  connectWallet,
+  isPreauthorized,
+  isWalletConnected,
+  walletAddress,
+  addWalletChangeListener,
+} from "../components/ConnectWallet/ConnectWallet"
 
-function MyApp({ Component, pageProps }) {
+
+
+
+export interface WalletProps {
+  isConnected: boolean;
+  address: string;
+  handleConnectClick: () => void;
+}
+
+
+
+
+function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
   const connectors = getInstalledInjectedConnectors();
+  
+  const [isConnected, setIsConnected] = useState(isWalletConnected());
+  const [address, setAddress] = useState<string>();
+  useEffect(() => {
+    try {
+      addWalletChangeListener((accounts) => {
+        if (accounts.length > 0) {
+          setAddress(accounts[0]);
+        } else {
+          setAddress("");
+          setIsConnected(false);
+        }
+      });
+    } catch {
+      router.push("/");
+    }
+  }, []);
+  /* useEffect(() => {
+    (async () => {
+      if (await isPreauthorized()) {
+        await handleConnectClick();
+      }
+    })();
+  }, []); */
+
+  const handleConnectClick = async () => {
+    await connectWallet();
+    setIsConnected(isWalletConnected());
+    setAddress(await walletAddress());
+  };
+
+
   return (
-    <StarknetProvider connectors={connectors} autoConnect>
+    <StarknetProvider autoConnect connectors={connectors}>
       <Head>
         <title>SNS</title>
         <link rel='icon' href="/starkname_transparent.png"></link>
       </Head>
-      <div className="h-screen flex justify-center">
-        <div className="max-w-6xl w-full mx-3">
-          <Header />
-          <div className="flex justify-center mt-12 xl:mt-16">
-            <div className="wrap">
-              <div className="neptun">
-                <div className="logo">SNS</div>
-              </div>
-            </div>
-          </div>
-          <Component {...pageProps} />    
+      <div className="h-screen flex justify-center bg-white-custom montserrat font-medium">
+          
+        <Component
+          walletProps={{ isConnected, address, handleConnectClick }}
+          {...pageProps}
+        /> 
 
-        </div>
       </div>
     </StarknetProvider >
     
