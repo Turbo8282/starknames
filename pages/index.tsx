@@ -127,7 +127,7 @@ export default function Home({ walletProps }: { walletProps: WalletProps }) {
 
 
       </div>
-      <div className="blur">
+      {/* <div className="blur">
         <div className="wrapper">
           <div className="toptwo">
             <div className="top"></div>
@@ -137,7 +137,7 @@ export default function Home({ walletProps }: { walletProps: WalletProps }) {
           <div className="bottom"></div>
         </div>
 
-      </div>
+      </div> */}
       {/* <div className="ball mt-96"></div> */}
 
       
@@ -175,7 +175,6 @@ export default function Home({ walletProps }: { walletProps: WalletProps }) {
           </div>
         </div>
       </div> */}
-      <div className="ball"></div>
 
     </div>
     

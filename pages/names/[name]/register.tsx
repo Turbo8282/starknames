@@ -9,7 +9,14 @@ import { WalletProps } from "../../_app";
 import { useRegister } from "../../../hooks/registry"
 import React, { FormEvent, useEffect, useState } from "react";
 import { encodeStrAsListOfFelts, hashName } from "../../../utils/felt";
-
+import Link from "next/link"
+import {
+    buildExplorerUrlForTransaction,
+    networkId,
+  } from "../../../services/wallet.service";
+  import {
+    truncateAddress,
+  } from "../../../services/address.service";
 
 export interface RegistryRecord {
     ownerAddress: string;
@@ -162,8 +169,9 @@ export default function Name({ walletProps }: { walletProps: WalletProps }) {
                                     <div className="cursor-pointer text-blue-800 border-b-2 border-blue-800 py-4 sm:py-5 md:py-6 px-16 bg-white">Register</div>
                                     <div className="cursor-pointer hover:text-slate-400 py-4 sm:py-5 md:py-6 px-16 hover:border-b-2 hover:border-slate-300 text-slate-300" onClick={() => router.push("/names/" + name + "/details")}>Details</div>
                                 </div>
-                                {(!loading && transactionId === undefined) && 
-                                    <div>
+                                {(!walletProps.isConnected && walletProps.address === undefined) && <div className="p-10 text-xl text-slate-500">Please connect <span onClick={() => walletProps.handleConnectClick()} className="text-blue-800 cursor-pointer font-semibold">your wallet.</span></div>}
+                                {(!loading && transactionId === undefined && walletProps.isConnected && walletProps.address !== undefined) ? 
+                                    (<div>
                                         <form onSubmit={handleSubmit}>
                                             <div className="flex flex-col m-10">
                                                 <label htmlFor="owneraddress" className="text-xl text-slate-500">Owner address:</label>
@@ -178,8 +186,44 @@ export default function Name({ walletProps }: { walletProps: WalletProps }) {
                                                 Register
                                             </button>
                                         </form>
-                                    </div>
+                                    </div>)
+                                    : (error === undefined && registrySubmission && transactionId) &&
+                                        (
+                                            <div className="p-10 text-slate-500">
+                                                <div className="text-xl">Congratulations, your registration has been submitted!</div>
+                                                <div>
+                                                    The transaction ID is {truncateAddress(transactionId)}.{" "}
+                                                    <Link href={buildExplorerUrlForTransaction(transactionId)}>
+                                                        <a target="_blank" className="text-starkred">View on Voyager</a>
+                                                    </Link>
+                                                </div>
+
+                                                <div className="my-6">
+                                                
+                                                <span className="text-lg">Your submission was:</span>
+                                                <table className="my-2 mx-auto text-left ">
+                                                    <tr>
+                                                    <td className="pr-4">Name:</td>
+                                                    <td> {registrySubmission.name}</td>
+                                                    </tr>
+                                                    <td className="pr-4">Owner:</td>
+                                                    <td> {truncateAddress(registrySubmission.ownerAddress)}</td>
+                                                    <tr>
+                                                    <td className="pr-4">Resolver:</td>
+                                                    <td> {truncateAddress(registrySubmission.resolverAddress)}</td>
+                                                    </tr>
+                                                    <td className="pr-4">Registration Period:</td>
+                                                    <td>
+                                                    {" "}
+                                                    {registrySubmission.registrationYears} year
+                                                    {registrySubmission.registrationYears > 1 ? "s" : ""}
+                                                    </td>
+                                                </table>
+                                                </div>
+                                            </div>
+                                        )
                                 }
+
                                 
                             </div>
                         </div>
