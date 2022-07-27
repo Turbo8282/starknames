@@ -2,8 +2,7 @@ import SearchBar from "../components/searchbar";
 import Header from "../components/header";
 import Image from "next/image";
 import Link from "next/link";
-import { WalletProps } from "_app";
-
+import { WalletProps } from "./_app";
 
 
 
